@@ -18,4 +18,4 @@ gemini:
 
 slack:
   bot:
-    token: ${SLACK_BOT_TOKEN}
+    token: ${SLACK_BOT_TOKEN:xoxo-test}
