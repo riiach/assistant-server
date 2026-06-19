@@ -56,7 +56,10 @@ public class GeminiService {
 
                 예: '오늘 물 500ml 마셨어'는 healthRecords에 WATER로 저장.
                 예: '오늘 물 얼마나 마셨더라?'는 mode QUERY, 배열은 비워둠.
+                예: '오늘 몇칼로리 먹었어?'는 mode QUERY, 배열은 비워둠.
+                예: '오늘 치킨 4조각 먹었어'는 healthRecords에 CALORIES로 대략 1000kcal 저장. 정확하지 않으면 평균값으로 추정.
                 예: '다음달까지 10kg 빼는 게 목표야'는 goals, habitTrackers, tasks, milestones까지 생성.
+                질문에 대한 answer는 기존보다 조금 더 친절하고 넓은 답변으로 작성.
 
                 사용자 문장:
                 %s

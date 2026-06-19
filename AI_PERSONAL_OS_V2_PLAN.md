@@ -46,3 +46,14 @@ This zip expands the assistant beyond simple logging.
 ## Known limitation
 
 Google Calendar event creation is intentionally left as a placeholder because Google Calendar OAuth/service-account setup is required.
+
+## v3 Additions
+
+- Added question router so questions are answered instead of saved as empty records.
+- Added AssistantSetting entity/API for notification time settings.
+- Added Google Calendar read-only client using Service Account JWT OAuth.
+- Added calendar reading into morning scrum and evening retrospective.
+- Added minute-based scheduler for configurable scrum/review times.
+- Added calendar event reminder notifications before event start.
+- Added calorie estimation fallback for Korean food messages such as "오늘 치킨 4조각 먹었어".
+- Added direct answers for "오늘 물 얼마나 마셨어?" and "오늘 몇칼로리 먹었어?".

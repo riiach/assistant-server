@@ -1,0 +1,3 @@
+-- v3 additions: settings and calendar reminder logs
+-- Hibernate ddl-auto=update will create/alter tables automatically in the current MVP setup.
+-- This file documents the intended schema for production migration.
