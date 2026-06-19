@@ -19,3 +19,4 @@ gemini:
 slack:
   bot:
     token: ${SLACK_BOT_TOKEN:xoxo-test}
+  default-channel: ${SLACK_DEFAULT_CHANNEL:}

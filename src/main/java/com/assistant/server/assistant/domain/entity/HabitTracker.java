@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -31,5 +32,9 @@ public class HabitTracker {
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
         if (this.status == null) this.status = RecordStatus.IN_PROGRESS;
+    }
+
+    public void update(String title, String description, com.assistant.server.assistant.domain.enums.RecordStatus status) {
+        this.title = title; this.description = description; this.status = status;
     }
 }
