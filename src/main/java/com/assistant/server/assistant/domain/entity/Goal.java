@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -43,5 +44,9 @@ public class Goal {
         this.createdAt = LocalDateTime.now();
         if (this.progress == null) this.progress = 0;
         if (this.status == null) this.status = RecordStatus.IN_PROGRESS;
+    }
+
+    public void update(String title, String description, String type, Integer targetYear, Integer targetMonth, java.time.LocalDate targetDate, Integer progress, com.assistant.server.assistant.domain.enums.RecordStatus status) {
+        this.title = title; this.description = description; this.type = type; this.targetYear = targetYear; this.targetMonth = targetMonth; this.targetDate = targetDate; this.progress = progress; this.status = status;
     }
 }

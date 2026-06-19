@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -31,5 +32,9 @@ public class Milestone {
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
         if (this.completed == null) this.completed = false;
+    }
+
+    public void update(Long goalId, String title, java.time.LocalDate dueDate, Boolean completed) {
+        this.goalId = goalId; this.title = title; this.dueDate = dueDate; this.completed = completed;
     }
 }

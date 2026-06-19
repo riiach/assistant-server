@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -29,5 +30,9 @@ public class AssistantLog {
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
+    }
+
+    public void update(String rawMessage, String intent, String parsedResult) {
+        this.rawMessage = rawMessage; this.intent = intent; this.parsedResult = parsedResult;
     }
 }

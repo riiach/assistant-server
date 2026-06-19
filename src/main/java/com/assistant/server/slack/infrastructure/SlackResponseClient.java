@@ -14,19 +14,31 @@ public class SlackResponseClient {
 
     private final WebClient.Builder webClientBuilder;
 
-    @Value("${slack.bot.token}")
+    @Value("${slack.bot.token:test-token}")
     private String botToken;
 
     public void sendMessage(String channelId, String text) {
-        Map<String, Object> body = Map.of(
-                "channel", channelId,
-                "text", text
-        );
-
+        Map<String, Object> body = Map.of("channel", channelId, "text", text);
         webClientBuilder.build()
                 .post()
                 .uri("https://slack.com/api/chat.postMessage")
                 .header("Authorization", "Bearer " + botToken)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(body)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+    }
+
+    public void sendResponseUrl(String responseUrl, String text) {
+        Map<String, Object> body = Map.of(
+                "response_type", "ephemeral",
+                "replace_original", false,
+                "text", text
+        );
+        webClientBuilder.build()
+                .post()
+                .uri(responseUrl)
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(body)
                 .retrieve()

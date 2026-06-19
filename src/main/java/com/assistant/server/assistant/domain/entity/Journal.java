@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -30,5 +31,9 @@ public class Journal {
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
         if (this.journalDate == null) this.journalDate = LocalDate.now();
+    }
+
+    public void update(String mood, String content, java.time.LocalDate journalDate) {
+        this.mood = mood; this.content = content; this.journalDate = journalDate;
     }
 }

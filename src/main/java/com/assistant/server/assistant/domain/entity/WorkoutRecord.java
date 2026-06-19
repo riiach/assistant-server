@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -33,5 +34,9 @@ public class WorkoutRecord {
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
         if (this.performedAt == null) this.performedAt = LocalDateTime.now();
+    }
+
+    public void update(String title, Integer durationMinutes, Integer caloriesBurned, String memo, java.time.LocalDateTime performedAt) {
+        this.title = title; this.durationMinutes = durationMinutes; this.caloriesBurned = caloriesBurned; this.memo = memo; this.performedAt = performedAt;
     }
 }
