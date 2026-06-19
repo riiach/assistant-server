@@ -1,0 +1,8 @@
+-- AI Personal OS v2 placeholder migration
+-- Add:
+-- memory_context
+-- notification_schedule
+-- reminder
+-- finance_summary
+-- account
+-- budget_category
